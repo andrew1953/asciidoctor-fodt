@@ -1,0 +1,11 @@
+- if title?
+  text:p text:style-name="Text" =title
+- parts = content.split(/\n/)
+- parts.each_with_index do |part, index|
+  - part = part.gsub(/\t/, '    ')
+  - part = part.gsub(/\s{8}/, '<text:s text:c="8"/>')
+  - part = part.gsub(/\s{4}/, '<text:s text:c="4"/>')
+  - part = part.gsub(/\s{2}/, '<text:s text:c="2"/>')
+  text:p text:style-name="SourceCode"
+    text:span text:style="Source_20_Text"
+      =part
