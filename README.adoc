@@ -1,0 +1,14 @@
+= Open Document Text Backend for Asciidoctor
+
+This is a first attempt towards Open Document backend (spporting flat ODF files).
+
+This work is heavily inspired by the two separate projects:
+
+* link:http://greglturnquist.com/2015/02/how-to-create-your-own-openoffice.html[asciidoctor-packt] which I've been looking up for various tricks with _Slim_ templates (as this was my first attempt)
+* link:https://github.com/dagwieers/asciidoc-odf[asciidoc-odf] which is a great source of OpenOffice document styles (which I didn't need to extract manually)
+
+== Details
+
+NOTE: This is a work in progress section where I put the details how the backend is created
+
+* The styles are auto-converted from the _asciidoc-odf_ default stylesheet and included as external template (_styles.fodt.slim)
