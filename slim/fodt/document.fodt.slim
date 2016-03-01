@@ -167,6 +167,6 @@ office:document(
         text:span text:style-name="author"
           text:author-name text:fixed="true" =(attr :author)
       text:span text:style-name="email"
-        text:a xlink:type="simple" xlink:href=(attr :email) =(attr :email)
+        text:a xlink:type="simple" xlink:href=%(mailto:#{attr :email}) =(attr :email)
 
       =content
