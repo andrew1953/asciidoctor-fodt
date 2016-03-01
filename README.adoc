@@ -7,8 +7,18 @@ This work is heavily inspired by the two separate projects:
 * link:http://greglturnquist.com/2015/02/how-to-create-your-own-openoffice.html[asciidoctor-packt] which I've been looking up for various tricks with _Slim_ templates (as this was my first attempt)
 * link:https://github.com/dagwieers/asciidoc-odf[asciidoc-odf] which is a great source of OpenOffice document styles (which I didn't need to extract manually)
 
+== Usage
+
+After cloning this repository, you can start using is straight away
+
+[source]
+$ asciidoctor -T /path/to/your/clone/of/asciidoc-fodt/slim -b fodt your_document.adoc
+
+This produces a `your_document.fodt` file which opens nicely in the LibreOffice.
+
 == Details
 
 NOTE: This is a work in progress section where I put the details how the backend is created
 
 * The styles are auto-converted from the _asciidoc-odf_ default stylesheet and included as external template (_styles.fodt.slim)
+* Not all blocks and inlines are supported - this is a work in progress. Please raise an issue if something is needed.
