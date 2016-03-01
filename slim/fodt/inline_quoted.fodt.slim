@@ -1,0 +1,14 @@
+- case @type
+- when :strong
+  text:span text:style-name="strong"
+    =text
+- when :monospaced
+  text:span text:style-name="monospaced"
+    =text
+- when :emphasis
+  text:span text:style-name="emphasis"
+    =text
+- else
+  -puts "Really normal??"
+  text:span text:style-name="normal"
+    =text

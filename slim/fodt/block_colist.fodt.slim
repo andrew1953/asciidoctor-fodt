@@ -1,8 +1,8 @@
 -if title?
   text:p text:style-name="title" =title
-text:list xml:id=@id text:style-name="itemizedlist"
+text:list xml:id=@id text:style-name="orderedlist"
   - items.each do |item|
     text:list-item
-      text:p text:style-name="itemizedlist-item" =item.text
+      text:p text:style-name="orderedlist-item" =item.text
       - if item.blocks?
           =item.content

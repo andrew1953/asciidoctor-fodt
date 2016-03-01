@@ -36,6 +36,12 @@ office:document(
   xmlns:css3t='http://www.w3.org/TR/css3-text/')
   office:meta
     dc:title=(doctitle sanitize: true)
+    /- segments = @header.title.rpartition(': ')
+    /- if segments.first.empty?
+    /  dc:title=segments.last
+    /- else
+    /  dc:title=segments.first
+    /  meta:user-defined meta:name="Subtitle" =segments.last        
     - [[:subject, :keywords], [:description, :description], [:creator, :author], [:language, :lang]].each do |(tag,key)|
       - if attr? key
         *{tag: %(dc:#{tag})} =(attr key)
@@ -154,13 +160,13 @@ office:document(
 
   office:body
     office:text text:use-soft-page-breaks='true'
-      - segments = @header.title.rpartition(': ')
-      - if segments.first.empty?
-        text:p text:style-name='Title' =segments.last    
-      - else
-        text:p text:style-name='Title' =segments.first    
-        text:p text:style-name='Subtitle' =segments.last
+      text:p text:style-name="sect0"
+        text:title
 
-      text:p text:style-name='P7' =(attr :author)
-      text:p text:style-name='P2'
+      text:p text:style-name="cover-text"
+        text:span text:style-name="author"
+          text:author-name text:fixed="true" =(attr :author)
+      text:span text:style-name="email"
+        text:a xlink:type="simple" xlink:href=(attr :email) =(attr :email)
+
       =content
