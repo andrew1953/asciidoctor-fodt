@@ -1,0 +1,12 @@
+- if title?
+  text:p text:style-name="title" =title
+text:list xml:id=@id text:style-name="variablelist"
+  - items.each do |terms, dd|
+  	text:list-item
+      - [*terms].each do |dt|
+        text:p text:style-name="variablelist-term" =dt.text
+      - unless dd.nil?      
+        - if dd.text?
+          text:p text:style-name="variablelist-item" =dd.text
+        - if dd.blocks?
+          =dd.content
