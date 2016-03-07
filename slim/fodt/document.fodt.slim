@@ -155,8 +155,8 @@ office:document(
      ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink"
     office:event-listeners
       - if attr? :toc
-        script:event-listener script-language='ooo:script' script:event-name='dom:load' xlink:href='.uno:UpdateAllIndexes'     
-  include _styles.fodt
+        script:event-listener script-language='ooo:script' script:event-name='dom:load' xlink:href='.uno:UpdateAllIndexes'  
+  = include_styles
 
   office:body
     office:text text:use-soft-page-breaks='true'

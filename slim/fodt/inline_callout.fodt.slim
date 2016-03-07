@@ -1,3 +1,13 @@
 /TODO: listing callouts as icons
-text:span text:style-name="normal"
-  |(#{text})
+/https://ask.libreoffice.org/en/question/648/is-it-possible-to-embed-fonts-in-a-writerimpresscalc-document/
+/https://bugs.documentfoundation.org/show_bug.cgi?id=42195&redirected_from=fdo
+- if document.attr? :icons
+  text:span text:style-name="embeddedfont" =text
+- else
+  text:span text:style-name="strong"
+    |(#{text})
+
+/- if font_icons?
+/  i.conum data-value=text
+/  b ="(#{text})"
+/embeddedfont
