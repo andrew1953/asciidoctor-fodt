@@ -10,7 +10,12 @@ module Slim::Helpers
       style = 'asciidoctor'
     end
 
-    Slim::Template.new("slim/fodt/_styles-#{style}.fodt.slim").render
+    (document::options[:template_dirs] || []).each do |folder|
+      filename = "#{folder}/#{document::backend}/_styles-#{style}.fodt.slim"
+      if File.exists?(filename)
+      	return Slim::Template.new(filename).render
+      end
+    end 
   end
 
 end
