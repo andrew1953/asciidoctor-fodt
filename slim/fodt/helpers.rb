@@ -13,7 +13,7 @@ module Slim::Helpers
     (document::options[:template_dirs] || []).each do |folder|
       filename = "#{folder}/#{document::backend}/_styles-#{style}.fodt.slim"
       if File.exists?(filename)
-      	return Slim::Template.new(filename).render({:footer => "#{attr :footer}"})
+      	return Slim::Template.new(filename).render(attributes)
       end
     end
   end
