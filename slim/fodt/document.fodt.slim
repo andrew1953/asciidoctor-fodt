@@ -157,6 +157,7 @@ office:document(
       - if attr? :toc
         script:event-listener script-language='ooo:script' script:event-name='dom:load' xlink:href='.uno:UpdateAllIndexes'  
   = include_styles
+  /include _styles-asciidoctor.fodt  
 
   office:body
     office:text text:use-soft-page-breaks='true'
@@ -164,11 +165,13 @@ office:document(
         text:title
 
       - if attr? :author
-        text:p text:style-name="cover-text"
+        text:p text:style-name="cover-text-author"
           text:span text:style-name="author"
             text:author-name text:fixed="true" =(attr :author)
       - if attr? :email
         text:span text:style-name="email"
           text:a xlink:type="simple" xlink:href=%(mailto:#{attr :email}) =(attr :email)
-
+      
+      text:p text:style-name="asciidoc-pagebreak"      
+      
       =content
