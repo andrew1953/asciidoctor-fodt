@@ -1,0 +1,6 @@
+/TODO: data-uri attriubte is essential for this to work
+text:p text:style-name="imageblock"  
+  draw:frame draw:style-name="imageblock-center" draw:name="image-#{attr :target}" text:anchor-type="paragraph" draw:z-index="0" 
+    draw:image
+      office:binary-data
+        =image_uri(attr :target).gsub(/data:[-\w]+\/[-\w]+;base64,/, '')
