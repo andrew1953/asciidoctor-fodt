@@ -1,5 +1,8 @@
 - if title?
-  text:p text:style-name="caption" =title
+  text:p text:style-name="caption"
+    text:bookmark-start text:name="#{@id}" 
+    =title
+    text:bookmark-end text:name="#{@id}"  
 - parts = content.split(/\n/)
 - parts.each_with_index do |part, index|
   - part = part.gsub(/\t/, '    ')
