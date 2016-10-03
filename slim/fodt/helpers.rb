@@ -18,4 +18,9 @@ module Slim::Helpers
     end
   end
 
+  def xref_text
+    str = text || document.references[:ids][attr :refid || target]
+    str.tr_s("\n", ' ') if str
+  end
+
 end

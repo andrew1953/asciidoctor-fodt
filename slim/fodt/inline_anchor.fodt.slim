@@ -1,1 +1,5 @@
-text:a xlink:type=role xlink:href=target =text
+- case type
+- when :xref
+  text:a xlink:type=role xlink:href=target =(xref_text || %([#{attr :refid}]))
+- else
+  text:a xlink:type=role xlink:href=target =text
